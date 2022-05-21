@@ -2,11 +2,13 @@ FROM php:8.1-fpm
 
 # Update
 RUN apt-get update -y
+RUN apt-get upgrade -y
 
 # Packages
-RUN apt install -y nano git zip unzip libicu-dev zlib1g-dev libpng-dev libonig-dev curl libzip-dev
+RUN apt install -y nano git zip unzip libicu-dev zlib1g-dev libpng-dev libonig-dev curl libzip-dev libfreetype6-dev libjpeg-dev
 
 # PHP Exts
+RUN docker-php-ext-configure gd --with-jpeg
 RUN docker-php-ext-install exif pdo_mysql intl opcache gd mysqli mbstring bcmath zip pcntl
 
 # PHP Imagick
