@@ -5,7 +5,7 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 
 # Packages
-RUN apt install -y nano git zip unzip libicu-dev zlib1g-dev libpng-dev libonig-dev curl libzip-dev libfreetype6-dev libjpeg-dev
+RUN apt install -y nano git wget zip unzip libicu-dev zlib1g-dev libpng-dev libonig-dev curl libzip-dev libfreetype6-dev libjpeg-dev
 
 # PHP Exts
 RUN docker-php-ext-configure gd --with-jpeg
