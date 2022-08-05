@@ -1,5 +1,7 @@
 FROM php:8.1-fpm
 
+ENV TZ="Europe/London"
+
 # Update
 RUN apt-get update -y
 RUN apt-get upgrade -y
@@ -34,3 +36,5 @@ RUN cd /tmp; curl -sS https://getcomposer.org/installer -o composer-setup.php; p
 # Node16
 RUN cd /tmp; curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt install -y nodejs
+
+USER www-data

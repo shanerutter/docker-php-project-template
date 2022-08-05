@@ -4,7 +4,7 @@
 #       CONFIG        #
 #######################
 COMPOSE_FILE="dev"
-PROJECT_NAME="projectname"
+PROJECT_NAME="project-name"
 
 
 #######################
@@ -25,9 +25,9 @@ if [[ $1 ]]; then
         elif [[ $2 == "stop" ]]; then
             $COMPOSE stop php-fpm
         elif [[ $2 == "bash" ]]; then
-            $COMPOSE exec php-fpm bash -c "cd /var/www/html; exec bash"
+            $COMPOSE exec php-fpm bash -c "umask 0000; cd /var/www/html; exec bash"
         elif [[ $2 == "config" ]]; then
-            $COMPOSE exec php-fpm bash -c "cd /usr/local/etc; exec bash"
+            $COMPOSE exec php-fpm bash -c "umask 0000; cd /usr/local/etc; exec bash"
         else
             echo "Command missing: start, stop, restart, config, bash"
         fi
