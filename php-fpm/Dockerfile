@@ -37,4 +37,6 @@ RUN cd /tmp; curl -sS https://getcomposer.org/installer -o composer-setup.php; p
 RUN cd /tmp; curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt install -y nodejs
 
+# Permissions and user setup
+RUN usermod -u 1000 www-data
 USER www-data
